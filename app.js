@@ -197,9 +197,14 @@ const loadTours = async () => {
 /* ---- Рендер однієї картки через template-рядок ---- */
 const renderCard = (tour) => {
   const { key, name, country, nights, price, rating, description, image } = tour;
+  const isUrl = image && image.startsWith('http');
+  const imageHtml = isUrl 
+    ? `<img class="tour-card__img" src="${image}" alt="${name}" loading="lazy">`
+    : `<div class="tour-emoji" aria-hidden="true">${image ?? '🌍'}</div>`;
+
   return `
     <article class="tour-card" data-tour="${key}">
-      <div class="tour-emoji" aria-hidden="true">${image ?? '🌍'}</div>
+      ${imageHtml}
       <h4 class="card-title">${name}</h4>
       <p class="muted">${country} · ${nights} ночей · ⭐ ${rating}</p>
       <p>${description}</p>
@@ -260,7 +265,16 @@ const initDetails = async () => {
 
     // Заповнення сторінки даними
     document.title = `${tour.name} — Мандрівник`;
-    document.getElementById('tour-emoji').textContent = tour.image || '🌍';
+    
+    const emojiEl = document.getElementById('tour-emoji');
+    if (tour.image && tour.image.startsWith('http')) {
+      emojiEl.innerHTML = `<img src="${tour.image}" alt="${tour.name}" class="tour-details__img">`;
+      emojiEl.classList.remove('tour-emoji-large');
+      emojiEl.classList.add('tour-details__img-wrapper');
+    } else {
+      emojiEl.textContent = tour.image || '🌍';
+    }
+
     document.getElementById('tour-name').textContent = tour.name;
     document.getElementById('tour-meta').textContent = `${tour.country} · ${tour.nights} ночей · ⭐ ${tour.rating}`;
     document.getElementById('tour-full-description').textContent = tour.fullDescription || tour.description;
