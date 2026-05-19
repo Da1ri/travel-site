@@ -13,12 +13,24 @@
 const themeBtn = document.getElementById('theme-toggle');
 const root = document.documentElement;
 
+// 1. Відновлення збереженої теми
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme) {
+  root.setAttribute('data-theme', savedTheme);
+  root.style.setProperty('--color-accent', savedTheme === 'dark' ? '#4ea8de' : '#0077b6');
+  if (themeBtn) {
+    themeBtn.textContent = savedTheme === 'dark' ? '☀️ Тема' : '🌙 Тема';
+  }
+}
+
+// 2. Логіка перемикання та збереження
 if (themeBtn) {
   themeBtn.addEventListener('click', () => {
     const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
     root.setAttribute('data-theme', next);
     root.style.setProperty('--color-accent', next === 'dark' ? '#4ea8de' : '#0077b6');
     themeBtn.textContent = next === 'dark' ? '☀️ Тема' : '🌙 Тема';
+    localStorage.setItem('theme', next); // Зберігаємо вибір
   });
 }
 
