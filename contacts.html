@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="uk" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Контакти, бронювання та калькулятор вартості туру">
+
+  <meta property="og:title" content="Контакти — Мандрівник">
+  <meta property="og:type" content="website">
+
+  <title>Контакти — Туристична компанія «Мандрівник»</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти до контенту</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="site-logo" href="index.html">
+        <span class="site-logo__icon" aria-hidden="true">✈️</span>
+        <span class="site-logo__text">Мандрівник</span>
+      </a>
+      <nav class="site-nav" aria-label="Головна навігація">
+        <ul class="nav-list">
+          <li><a href="index.html">Головна</a></li>
+          <li><a href="tours.html">Тури</a></li>
+          <li><a href="contacts.html" aria-current="page">Контакти</a></li>
+        </ul>
+      </nav>
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Перемкнути тему">
+        🌙 Тема
+      </button>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <header class="page-head">
+      <h2 id="contacts-heading">Контакти та бронювання</h2>
+      <p class="muted">Залиш заявку — менеджер зв'яжеться протягом години.</p>
+    </header>
+
+    <div class="contacts-grid">
+      <section class="card" aria-labelledby="contact-info-heading">
+        <h3 id="contact-info-heading">Наші контакти</h3>
+        <address>
+          Україна, м. Кам'янець-Подільський, вул. Туристична, 12<br>
+          Тел.: <a href="tel:+380973139885">+38 (097) 313-98-85</a><br>
+          Email: <a href="mailto:kn1b22.serebrianskyi@kpnu.edu.ua">kn1b22.serebrianskyi@kpnu.edu.ua</a>
+        </address>
+        <ul class="features">
+          <li>Відповідь протягом години</li>
+          <li>Безкоштовна консультація</li>
+          <li>Безпечна оплата</li>
+        </ul>
+      </section>
+
+      <section class="card" aria-labelledby="booking-form-heading">
+        <h3 id="booking-form-heading">Форма бронювання</h3>
+
+        <form id="booking-form" class="booking-form" action="#" method="post" novalidate>
+          <div class="form-row">
+            <label for="name">Ваше ім'я *</label>
+            <input type="text" id="name" name="name" required minlength="2" maxlength="50">
+          </div>
+          <div class="form-row">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-row">
+            <label for="phone">Телефон *</label>
+            <input type="tel" id="phone" name="phone" required pattern="\+?[0-9\s\-\(\)]{10,}">
+          </div>
+          <div class="form-row">
+            <label for="tour">Оберіть тур *</label>
+            <select id="tour" name="tour" required>
+              <option value="">-- Оберіть --</option>
+              <option value="turkey">Туреччина</option>
+              <option value="egypt">Єгипет</option>
+              <option value="greece">Греція</option>
+              <option value="italy">Італія</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="date">Бажана дата виїзду *</label>
+            <input type="date" id="date" name="date" required>
+          </div>
+          <div class="form-row">
+            <label for="message">Додаткові побажання</label>
+            <textarea id="message" name="message" rows="4"></textarea>
+          </div>
+          <button class="btn btn--primary" type="submit">Надіслати заявку</button>
+        </form>
+
+        <p id="booking-status" class="status-msg" role="status" aria-live="polite"></p>
+      </section>
+    </div>
+
+    <section class="card calc" aria-labelledby="calc-heading">
+      <h3 id="calc-heading">Калькулятор вартості туру</h3>
+      <p class="hint">Оберіть тур, к-ть людей і ночей — отримайте підсумок зі знижкою для груп від 3 осіб.</p>
+
+      <form id="calc-form" class="booking-form">
+        <div class="form-row">
+          <label for="calc-tour">Тур</label>
+          <select id="calc-tour" required>
+            <option value="turkey">Туреччина — 800 USD / 7 ночей</option>
+            <option value="egypt">Єгипет — 1100 USD / 10 ночей</option>
+            <option value="greece">Греція — 950 USD / 8 ночей</option>
+            <option value="italy">Італія — 1300 USD / 9 ночей</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="calc-people">Кількість людей</label>
+          <input type="number" id="calc-people" min="1" max="20" value="2" required>
+        </div>
+        <div class="form-row">
+          <label for="calc-nights">Кількість ночей</label>
+          <input type="number" id="calc-nights" min="1" max="30" value="7" required>
+        </div>
+        <button class="btn btn--primary" type="submit">Розрахувати</button>
+      </form>
+
+      <p id="calc-result" class="calc-result" role="status" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <address>
+        Україна, м. Кам'янець-Подільський, вул. Туристична, 12<br>
+        Тел.: <a href="tel:+380973139885">+38 (097) 313-98-85</a><br>
+        Email: <a href="mailto:kn1b22.serebrianskyi@kpnu.edu.ua">kn1b22.serebrianskyi@kpnu.edu.ua</a>
+      </address>
+      <p>&copy; 2026 Туристична компанія «Мандрівник» · Designed in Figma</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

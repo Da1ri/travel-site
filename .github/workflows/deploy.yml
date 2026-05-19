@@ -1,0 +1,48 @@
+# ============================================================
+# Лаб 8. Тема: «Туристична компанія "Мандрівник"»
+# CI/CD: автоматична публікація статичного сайту на GitHub Pages
+# при кожному push у гілку main.
+# ============================================================
+name: Deploy travel-site to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Запобігаємо паралельним деплоям одночасно; новий push скасовує попередній.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload static artifact (whole travel-site folder)
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Деплоїмо весь корінь репозиторію (HTML/CSS/JS/JSON).
+          path: .
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

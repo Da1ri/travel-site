@@ -1,0 +1,66 @@
+{
+  "updated": "2026-05-17",
+  "currency": "USD",
+  "tours": [
+    {
+      "key": "turkey",
+      "name": "Тур до Туреччини",
+      "country": "Туреччина",
+      "nights": 7,
+      "price": 800,
+      "rating": 4.7,
+      "description": "5*, все включено. Виліт з Києва. Ідеально для сімей.",
+      "image": "🏖️"
+    },
+    {
+      "key": "egypt",
+      "name": "Тур до Єгипту",
+      "country": "Єгипет",
+      "nights": 10,
+      "price": 1100,
+      "rating": 4.8,
+      "description": "Готель біля пляжу, напівпансіон. Дайвінг та екскурсії.",
+      "image": "🐪"
+    },
+    {
+      "key": "greece",
+      "name": "Тур до Греції",
+      "country": "Греція",
+      "nights": 8,
+      "price": 950,
+      "rating": 4.6,
+      "description": "Острів Крит, напівпансіон. Античні руїни поряд.",
+      "image": "🏛️"
+    },
+    {
+      "key": "italy",
+      "name": "Тур до Італії",
+      "country": "Італія",
+      "nights": 9,
+      "price": 1300,
+      "rating": 4.9,
+      "description": "Рим, Флоренція, Венеція — класичний тур.",
+      "image": "🍕"
+    },
+    {
+      "key": "spain",
+      "name": "Тур до Іспанії",
+      "country": "Іспанія",
+      "nights": 7,
+      "price": 1050,
+      "rating": 4.5,
+      "description": "Барселона, Мадрид. Пляжний відпочинок + культура.",
+      "image": "💃"
+    },
+    {
+      "key": "georgia",
+      "name": "Тур до Грузії",
+      "country": "Грузія",
+      "nights": 6,
+      "price": 550,
+      "rating": 4.4,
+      "description": "Тбілісі, Батумі, гори Кавказу. Винні погреби.",
+      "image": "🍷"
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="uk" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Каталог турів — Туристична компанія «Мандрівник»</title>
+  <meta name="description" content="Повний каталог турів від «Мандрівника»: ціни, опис, рейтинги. Дані оновлюються щодня.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://serebrianskyi.github.io/travel-site/tours.html">
+
+  <meta property="og:title" content="Каталог турів — Мандрівник">
+  <meta property="og:description" content="Всі тури від Мандрівника в одному місці.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://serebrianskyi.github.io/travel-site/tours.html">
+  <meta property="og:locale" content="uk_UA">
+
+  <link rel="preload" href="styles.css" as="style">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти до контенту</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="site-logo" href="index.html">
+        <span class="site-logo__icon" aria-hidden="true">✈️</span>
+        <span class="site-logo__text">Мандрівник</span>
+      </a>
+      <nav class="site-nav" aria-label="Головна навігація">
+        <ul class="nav-list">
+          <li><a href="index.html">Головна</a></li>
+          <li><a href="tours.html" aria-current="page">Тури</a></li>
+          <li><a href="contacts.html">Контакти</a></li>
+        </ul>
+      </nav>
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Перемкнути тему">
+        🌙 Тема
+      </button>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <header class="page-head">
+      <h2 id="catalog-heading">Каталог турів</h2>
+      <p class="muted">Усі напрямки сезону. Дані оновлюються з сервера.</p>
+    </header>
+
+    <section aria-labelledby="tours-list-heading">
+      <div class="catalog-toolbar">
+        <h3 id="tours-list-heading">Всі доступні тури</h3>
+        <p id="catalog-meta" class="hint"></p>
+        <button id="reload-btn" class="btn" type="button">Оновити каталог</button>
+      </div>
+
+      <div id="loader" class="loader" hidden>Завантаження турів...</div>
+      <p id="error-msg" class="status-msg error-msg" role="alert" hidden></p>
+
+      <div class="tours-grid" id="hot-tours" hidden></div>
+
+      <p id="status-msg" class="status-msg" role="status" aria-live="polite"></p>
+      <p class="muted">В обраному: <span id="fav-count">0</span> турів</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <address>
+        Україна, м. Кам'янець-Подільський, вул. Туристична, 12<br>
+        Тел.: <a href="tel:+380973139885">+38 (097) 313-98-85</a><br>
+        Email: <a href="mailto:kn1b22.serebrianskyi@kpnu.edu.ua">kn1b22.serebrianskyi@kpnu.edu.ua</a>
+      </address>
+      <p>&copy; 2026 Туристична компанія «Мандрівник» · Designed in Figma</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
