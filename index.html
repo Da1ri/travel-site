@@ -180,6 +180,30 @@
     </div>
   </footer>
 
+  <!-- Чат з менеджером -->
+  <div id="chat-widget" class="chat-widget">
+    <button id="chat-toggle" class="chat-toggle" aria-label="Відкрити чат">💬</button>
+    <div id="chat-box" class="chat-box" hidden>
+      <div class="chat-header">
+        <div class="chat-manager-info">
+          <span class="chat-avatar">👤</span>
+          <div>
+            <strong>Артем Олександрович</strong><br>
+            <small>Менеджер (Online)</small>
+          </div>
+        </div>
+        <button id="chat-close" class="chat-close" aria-label="Закрити">&times;</button>
+      </div>
+      <div class="chat-messages">
+        <div class="message manager">Вітаю! Я Артем Олександрович. Чим я можу вам допомогти?</div>
+      </div>
+      <form id="chat-form" class="chat-form">
+        <input type="text" id="chat-input" placeholder="Напишіть повідомлення..." required>
+        <button type="submit" class="chat-send" title="Відправити через Gmail">🚀</button>
+      </form>
+    </div>
+  </div>
+
   <script src="app.js"></script>
 </body>
 </html>

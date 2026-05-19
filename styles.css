@@ -859,3 +859,169 @@ h2, h3, h4 { line-height: var(--lh-tight); margin-bottom: var(--s-2); }
   padding-left: 0;
   padding-right: 0;
 }
+
+/* ============================================================
+   Чат з менеджером (Віджет)
+   ============================================================ */
+.chat-widget {
+  position: fixed;
+  bottom: var(--s-5);
+  right: var(--s-5);
+  z-index: 1000;
+  font-family: var(--font-family);
+}
+
+.chat-toggle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: white;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: var(--elev-3);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chat-toggle:hover {
+  transform: scale(1.1) rotate(5deg);
+  background: var(--color-accent-hover);
+}
+
+.chat-box {
+  position: absolute;
+  bottom: 80px;
+  right: 0;
+  width: 320px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--r-lg);
+  box-shadow: var(--elev-3);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.chat-header {
+  background: var(--color-accent);
+  color: white;
+  padding: var(--s-3) var(--s-4);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chat-manager-info {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+}
+
+.chat-manager-info strong {
+  font-size: 0.95rem;
+  display: block;
+  line-height: 1.2;
+}
+
+.chat-manager-info small {
+  font-size: 0.75rem;
+  opacity: 0.9;
+}
+
+.chat-avatar {
+  font-size: 1.8rem;
+  background: rgba(255,255,255,0.2);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.chat-close {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
+
+.chat-messages {
+  padding: var(--s-4);
+  height: 250px;
+  overflow-y: auto;
+  background: var(--color-surface-alt);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+}
+
+.message {
+  padding: 10px 14px;
+  border-radius: var(--r-md);
+  font-size: 0.9rem;
+  line-height: 1.4;
+  max-width: 90%;
+}
+
+.message.manager {
+  background: var(--color-surface);
+  color: var(--color-text);
+  align-self: flex-start;
+  border-bottom-left-radius: 2px;
+  box-shadow: var(--elev-1);
+}
+
+.chat-form {
+  padding: var(--s-3);
+  display: flex;
+  gap: var(--s-2);
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+}
+
+.chat-form input {
+  flex: 1;
+  border: 1px solid var(--color-border);
+  padding: 10px;
+  border-radius: var(--r-md);
+  font-size: 0.9rem;
+  background: var(--color-surface-alt);
+  color: var(--color-text);
+}
+
+.chat-form input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+
+.chat-send {
+  background: var(--color-accent);
+  border: none;
+  color: white;
+  border-radius: var(--r-md);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.chat-send:hover {
+  background: var(--color-accent-hover);
+}
