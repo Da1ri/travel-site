@@ -599,3 +599,68 @@ h2, h3, h4 { line-height: var(--lh-tight); margin-bottom: var(--s-2); }
   .hero__title { font-size: 2rem; }
   .hero__stats { gap: var(--s-4); }
 }
+
+/* ============================================================
+   Сторінка деталей туру (details.html)
+   ============================================================ */
+.tour-details-container {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--r-lg);
+  padding: var(--s-6);
+  box-shadow: var(--elev-2);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.tour-emoji-large {
+  width: 80px; height: 80px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-accent-soft);
+  border-radius: var(--r-md);
+  font-size: 3rem;
+  margin-bottom: var(--s-3);
+}
+
+.tour-section {
+  margin-top: var(--s-5);
+  padding-top: var(--s-5);
+  border-top: 1px solid var(--color-border);
+}
+
+.included-list {
+  margin-top: var(--s-3);
+  display: grid;
+  gap: var(--s-2);
+}
+.included-list li::before {
+  content: '?? ';
+  color: var(--color-success);
+}
+
+.booking-box {
+  background: var(--color-surface-alt);
+  padding: var(--s-4);
+  border-radius: var(--r-md);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--s-3);
+}
+
+.price-large {
+  font-size: 1.25rem;
+  color: var(--color-text);
+}
+.price-large strong {
+  font-size: 2rem;
+  color: var(--color-accent);
+}
+
+.back-link {
+  margin-top: var(--s-6);
+  text-align: center;
+}

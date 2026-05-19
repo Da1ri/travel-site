@@ -192,7 +192,7 @@ const renderCard = (tour) => {
       <p class="muted">${country} · ${nights} ночей · ⭐ ${rating}</p>
       <p>${description}</p>
       <p class="price"><strong>Ціна:</strong> від ${price} USD</p>
-      <a class="btn" href="contacts.html">Забронювати</a>
+      <a class="btn" href="details.html?id=${key}">Детальніше</a>
       <div class="card-actions">
         <button data-action="favorite" aria-label="Додати в обране">★</button>
         <button data-action="copy" aria-label="Копіювати назву">⧉</button>
@@ -220,11 +220,52 @@ const renderCatalog = ({ updated, tours }) => {
 
 const showError = (message) => {
   if (!errorMsg) return;
-  errorMsg.textContent = `Не вдалося завантажити каталог: ${message}`;
+  errorMsg.textContent = `Помилка: ${message}`;
   errorMsg.hidden = false;
 };
 
-/* ---- Стартова точка: лише на сторінці з #hot-tours та #loader ---- */
+/* ---- Логіка для сторінки деталей (details.html) ---- */
+const initDetails = async () => {
+  const tourContent = document.getElementById('tour-content');
+  if (!tourContent) return;
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const tourId = urlParams.get('id');
+
+  if (!tourId) {
+    showError('ID туру не вказано');
+    return;
+  }
+
+  try {
+    const data = await loadTours();
+    const tour = data.tours.find(t => t.key === tourId);
+
+    if (!tour) {
+      showError('Тур не знайдено');
+      return;
+    }
+
+    // Заповнення сторінки даними
+    document.title = `${tour.name} — Мандрівник`;
+    document.getElementById('tour-emoji').textContent = tour.image || '🌍';
+    document.getElementById('tour-name').textContent = tour.name;
+    document.getElementById('tour-meta').textContent = `${tour.country} · ${tour.nights} ночей · ⭐ ${tour.rating}`;
+    document.getElementById('tour-full-description').textContent = tour.fullDescription || tour.description;
+    document.getElementById('tour-price').textContent = tour.price;
+
+    const includedList = document.getElementById('tour-included');
+    if (tour.included && Array.isArray(tour.included)) {
+      includedList.innerHTML = tour.included.map(item => `<li>${item}</li>`).join('');
+    }
+
+    tourContent.hidden = false;
+  } catch (error) {
+    showError(error.message);
+  }
+};
+
+/* ---- Стартова точка ---- */
 if (grid && loader) {
   const init = async () => {
     try {
@@ -237,6 +278,11 @@ if (grid && loader) {
 
   init();
   reloadBtn?.addEventListener('click', init);
+}
+
+// Запуск ініціалізації деталей, якщо ми на відповідній сторінці
+if (document.getElementById('tour-details')) {
+  initDetails();
 }
 
 /* ============================================================

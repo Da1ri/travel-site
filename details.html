@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="uk" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Деталі туру — Туристична компанія «Мандрівник»</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="site-logo" href="index.html">
+        <span class="site-logo__icon" aria-hidden="true">✈️</span>
+        <span class="site-logo__text">Мандрівник</span>
+      </a>
+      <nav class="site-nav" aria-label="Головна навігація">
+        <ul class="nav-list">
+          <li><a href="index.html">Головна</a></li>
+          <li><a href="tours.html">Тури</a></li>
+          <li><a href="contacts.html">Контакти</a></li>
+        </ul>
+      </nav>
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Перемкнути тему">
+        🌙 Тема
+      </button>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <div id="tour-details" class="tour-details-container">
+      <div id="loader" class="loader">Завантаження деталей туру...</div>
+      <p id="error-msg" class="status-msg error-msg" role="alert" hidden></p>
+      
+      <!-- Content will be injected here by app.js -->
+      <article id="tour-content" hidden>
+        <header class="page-head">
+          <div id="tour-emoji" class="tour-emoji-large" aria-hidden="true"></div>
+          <h2 id="tour-name">Назва туру</h2>
+          <p id="tour-meta" class="muted"></p>
+        </header>
+
+        <section class="tour-section">
+          <h3>Про тур</h3>
+          <p id="tour-full-description"></p>
+        </section>
+
+        <section class="tour-section">
+          <h3>Що включено у вартість</h3>
+          <ul id="tour-included" class="included-list"></ul>
+        </section>
+
+        <section class="tour-section booking-box">
+          <p class="price-large">Ціна: <strong id="tour-price"></strong> USD</p>
+          <a class="btn btn--primary btn--lg" href="contacts.html">Забронювати зараз</a>
+        </section>
+        
+        <div class="back-link">
+            <a href="tours.html">&larr; Повернутися до каталогу</a>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <address>
+        Україна, м. Кам'янець-Подільський, вул. Туристична, 12<br>
+        Тел.: <a href="tel:+380973139885">+38 (097) 313-98-85</a><br>
+        Email: <a href="mailto:kn1b22.serebrianskyi@kpnu.edu.ua">kn1b22.serebrianskyi@kpnu.edu.ua</a>
+      </address>
+      <p>&copy; 2026 Туристична компанія «Мандрівник»</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
