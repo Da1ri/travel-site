@@ -284,7 +284,7 @@ h2, h3, h4 { line-height: var(--lh-tight); margin-bottom: var(--s-2); }
   gap: var(--s-2);
   padding: 10px 20px;
   border-radius: var(--r-md);
-  border: 1px solid transparent;
+  border: 2px solid var(--color-border);
   background: var(--color-surface);
   color: var(--color-text);
   font-weight: 600;
@@ -298,17 +298,19 @@ h2, h3, h4 { line-height: var(--lh-tight); margin-bottom: var(--s-2); }
 .btn--primary {
   background: var(--color-accent);
   color: #fff;
+  border-color: var(--color-accent);
   box-shadow: 0 8px 20px var(--color-accent-soft);
 }
 .btn--primary:hover {
   background: var(--color-accent-hover);
+  border-color: var(--color-accent-hover);
   transform: translateY(-2px);
 }
 
 .btn--ghost {
   background: transparent;
   color: var(--color-text);
-  border-color: var(--color-border);
+  border-color: var(--color-accent);
 }
 .btn--ghost:hover { border-color: var(--color-accent); color: var(--color-accent); }
 
@@ -601,7 +603,7 @@ h2, h3, h4 { line-height: var(--lh-tight); margin-bottom: var(--s-2); }
 }
 
 /* ============================================================
-   Сторінка деталей туру (details.html)
+   пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ (details.html)
    ============================================================ */
 .tour-details-container {
   background: var(--color-surface);
