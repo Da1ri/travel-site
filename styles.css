@@ -703,3 +703,102 @@ h2, h3, h4 { line-height: var(--lh-tight); margin-bottom: var(--s-2); }
   object-fit: cover;
 }
 
+
+/* ============================================================
+   Оновлені стилі для карток (фото вгорі врівень з контурами)
+   ============================================================ */
+.tour-card {
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.tour-card__img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 0;
+  margin: 0;
+}
+
+.tour-card__content {
+  padding: var(--s-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  flex: 1;
+}
+
+.tour-card__foot {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  padding-top: var(--s-2);
+}
+
+/* Оновлення медіа-запитів для горизонтальної картки */
+@container tours (min-width: 700px) {
+  .tour-card {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: "img content";
+    align-items: stretch;
+  }
+  .tour-card__img {
+    grid-area: img;
+    height: 100%;
+    min-height: 250px;
+  }
+  .tour-card__content {
+    grid-area: content;
+  }
+  .tour-card__foot {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .tour-card__foot .btn { order: 2; }
+  .tour-card__foot .card-actions { order: 1; border: none; padding: 0; margin: 0; }
+}
+
+/* ============================================================
+   Сторінка деталей туру (фото врівень з контурами)
+   ============================================================ */
+.tour-details-container {
+  padding: 0;
+  overflow: hidden;
+}
+
+.tour-details__img-wrapper {
+  width: 100%;
+  height: 400px;
+  margin: 0;
+  border-radius: 0;
+}
+
+.tour-details__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tour-details-container article > * {
+  padding-left: var(--s-6);
+  padding-right: var(--s-6);
+}
+
+.tour-details-container .page-head {
+  padding-top: var(--s-6);
+}
+
+.tour-details-container .tour-section:last-of-type {
+    padding-bottom: var(--s-6);
+}
+
+.tour-details-container .back-link {
+    padding-bottom: var(--s-6);
+}

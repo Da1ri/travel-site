@@ -205,15 +205,19 @@ const renderCard = (tour) => {
   return `
     <article class="tour-card" data-tour="${key}">
       ${imageHtml}
-      <h4 class="card-title">${name}</h4>
-      <p class="muted">${country} · ${nights} ночей · ⭐ ${rating}</p>
-      <p>${description}</p>
-      <p class="price"><strong>Ціна:</strong> від ${price} USD</p>
-      <a class="btn" href="details.html?id=${key}">Детальніше</a>
-      <div class="card-actions">
-        <button data-action="favorite" aria-label="Додати в обране">★</button>
-        <button data-action="copy" aria-label="Копіювати назву">⧉</button>
-        <button data-action="share" aria-label="Поділитися">↗</button>
+      <div class="tour-card__content">
+        <h4 class="card-title">${name}</h4>
+        <p class="muted">${country} · ${nights} ночей · ⭐ ${rating}</p>
+        <p>${description}</p>
+        <p class="price"><strong>Ціна:</strong> від ${price} USD</p>
+        <div class="tour-card__foot">
+          <a class="btn" href="details.html?id=${key}">Детальніше</a>
+          <div class="card-actions">
+            <button data-action="favorite" aria-label="Додати в обране">★</button>
+            <button data-action="copy" aria-label="Копіювати назву">⧉</button>
+            <button data-action="share" aria-label="Поділитися">↗</button>
+          </div>
+        </div>
       </div>
     </article>
   `;
