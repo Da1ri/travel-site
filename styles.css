@@ -666,3 +666,14 @@ h2, h3, h4 { line-height: var(--lh-tight); margin-bottom: var(--s-2); }
   margin-top: var(--s-6);
   text-align: center;
 }
+
+/* ============================================================
+   Валідація форм
+   ============================================================ */
+.form-row input:invalid:not(:placeholder-shown),
+.form-row select:invalid:not(:placeholder-shown),
+.form-row textarea:invalid:not(:placeholder-shown) {
+  border-color: var(--color-error);
+  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.15);
+}
+
